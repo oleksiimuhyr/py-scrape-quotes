@@ -11,7 +11,6 @@ BASE_URL = "https://quotes.toscrape.com/"
 class Quote:
     text: str
     author: str
-    tags: list[str]
     tags: List[str]
 
 
@@ -40,7 +39,6 @@ def get_quotes_from_page(page_url: str) -> List[Quote]:
 
 
 def main(output_csv_path: str) -> None:
-    pass
     quotes = get_quotes_from_page(BASE_URL)
     with open(output_csv_path, "w", newline="", encoding="utf-8") as csvfile:
         fieldnames = [field.name for field in fields(Quote)]
